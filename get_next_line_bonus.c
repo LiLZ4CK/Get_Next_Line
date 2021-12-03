@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 20:37:33 by zwalad            #+#    #+#             */
-/*   Updated: 2021/12/03 17:41:42 by zwalad           ###   ########.fr       */
+/*   Created: 2021/12/03 17:40:16 by zwalad            #+#    #+#             */
+/*   Updated: 2021/12/03 17:48:50 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"get_next_line.h"
+#include	"get_next_line_bonus.h"
 
 char	*get_line(char *str)
 {
@@ -76,21 +76,21 @@ char	*norm_kekw(char *str, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[1024];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!str)
-		str = ft_strdup("");
-	str = norm_kekw(str, fd);
-	if (!str[0])
+	if (!str[fd])
+		str[fd] = ft_strdup("");
+	str[fd] = norm_kekw(str[fd], fd);
+	if (!str[fd][0])
 	{
-		free(str);
-		str = NULL;
+		free(str[fd]);
+		str[fd] = NULL;
 		return (NULL);
 	}
-	line = get_line(str);
-	str = get_next(str);
+	line = get_line(str[fd]);
+	str[fd] = get_next(str[fd]);
 	return (line);
 }
