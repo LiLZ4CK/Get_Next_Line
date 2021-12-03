@@ -6,7 +6,7 @@
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:39:15 by zwalad            #+#    #+#             */
-/*   Updated: 2021/12/02 18:10:40 by zwalad           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:42:02 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,25 +49,25 @@ char	*ft_strjoin(char *str, char *buf)
 	int		i;
 	int		j;
 
-    a = 0;
-    if (!str)
-        str = ft_strdup("");
-    i = ft_strlen(str);
-    j = ft_strlen(buf);
-    nwstr = malloc(i + j + 1);
-    while (a < i)
-    {
-        nwstr[a] = str[a];
-        a++;
-    }
-    a = 0;
-    while (a < j)
-    {
-        nwstr[i + a] = buf[a];
-        a++;
-    }
+	a = 0;
+	if (!str)
+		str = ft_strdup("");
+	i = ft_strlen(str);
+	j = ft_strlen(buf);
+	nwstr = malloc(i + j + 1);
+	while (a < i)
+	{
+		nwstr[a] = str[a];
+		a++;
+	}
+	a = 0;
+	while (a < j)
+	{
+		nwstr[i + a] = buf[a];
+		a++;
+	}
 	free(str);
-    nwstr[i + a] = '\0';
+	nwstr[i + a] = '\0';
 	return (nwstr);
 }
 

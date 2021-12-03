@@ -6,17 +6,17 @@
 /*   By: zwalad <zwalad@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 20:37:33 by zwalad            #+#    #+#             */
-/*   Updated: 2021/12/03 12:40:52 by zwalad           ###   ########.fr       */
+/*   Updated: 2021/12/03 13:43:47 by zwalad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"get_next_line.h"
 
-char *get_line(char *str)
+char	*get_line(char *str)
 {
-	int i;
-	int j;
-	char *l;
+	int		i;
+	int		j;
+	char	*l;
 
 	i = 0;
 	j = 0;
@@ -35,7 +35,7 @@ char *get_line(char *str)
 	return (l);
 }
 
-char *get_next(char *str)
+char	*get_next(char *str)
 {
 	int		i;
 	char	*sstr;
@@ -51,13 +51,14 @@ char *get_next(char *str)
 	}
 	return (sstr);
 }
-char    *get_next_line(int fd)
+
+char	*get_next_line(int fd)
 {
-    char		*buf;
+	char		*buf;
 	static char	*str;
-	char 		*line;
-	int 		len;
-	
+	char		*line;
+	int			len;
+
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	len = 1;
@@ -88,18 +89,3 @@ char    *get_next_line(int fd)
 	str = get_next(str);
 	return (line);
 }
-//a0\nb1b
-/* int main()
-{
-	int fd;
-	
-	fd = open("fd1", O_RDONLY);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-} */
