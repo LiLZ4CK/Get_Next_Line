@@ -28,6 +28,6 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, size_t start, size_t len);
 char	*get_next(char *str);
 char	*get_line(char *str);
-char	*norm_kekw(char *str, int fd);
+char	*read_all(char *str, int fd);
 
 #endif
