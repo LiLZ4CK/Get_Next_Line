@@ -52,7 +52,7 @@ char	*get_next(char *str)
 	return (sstr);
 }
 
-char	*norm_kekw(char *str, int fd)
+char	*read_all(char *str, int fd)
 {
 	int	len;
 	char *buf;
@@ -83,7 +83,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (!str[fd])
 		str[fd] = ft_strdup("");
-	str[fd] = norm_kekw(str[fd], fd);
+	str[fd] = read_all(str[fd], fd);
 	if (!str[fd][0])
 	{
 		free(str[fd]);
